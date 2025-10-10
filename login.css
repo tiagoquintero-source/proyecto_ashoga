@@ -1,0 +1,45 @@
+:root{
+  --bg: #f3f6fb;
+  --card: #ffffff;
+  --accent: #2563eb;
+  --muted: #6b7280;
+  --danger: #ef4444;
+}
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;
+  font-family: Inter, Roboto, "Segoe UI", system-ui, -apple-system, "Helvetica Neue", Arial;
+  background:linear-gradient(180deg,var(--bg),#e9f0ff 60%);
+  color:#111827;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:24px;
+}
+.login-page{width:100%;max-width:420px}
+.login-card{
+  background:var(--card);
+  border-radius:12px;
+  padding:28px;
+  box-shadow:0 8px 30px rgba(16,24,40,0.08);
+  border:1px solid rgba(16,24,40,0.04);
+}
+.login-card h1{margin:0 0 18px 0;font-size:20px}
+.field{margin-bottom:14px}
+.field label{display:block;margin-bottom:6px;font-size:13px;color:var(--muted)}
+.field input{
+  width:100%;padding:10px 12px;border-radius:8px;border:1px solid #d1d5db;background:#fbfdff;font-size:15px
+}
+.password-wrap{display:block}
+#toggle-password{display:none}
+.actions{margin-top:6px}
+#submit-btn{width:100%;padding:10px 12px;border-radius:10px;border:none;background:var(--accent);color:white;font-weight:600;cursor:pointer}
+.note{margin-top:12px;font-size:13px;color:var(--muted)}
+.error{display:block;margin-top:6px;color:var(--danger);font-size:13px;min-height:18px}
+#status{margin-top:10px;font-size:14px}
+
+@media (prefers-reduced-motion: no-preference){
+  .login-card{transition:transform .18s ease, box-shadow .18s ease}
+  .login-card:focus-within{transform:translateY(-3px);box-shadow:0 12px 40px rgba(16,24,40,0.12)}
+}
