@@ -12,17 +12,23 @@ document.addEventListener('DOMContentLoaded', function () {
     const user = JSON.parse(raw);
     if (!user || !user.logged) throw new Error('No valid session');
 
-    userInfo.textContent = `Usuario: ${user.username}`;
+    // Mostrar usuario en el header area si el elemento existe
+    if (userInfo) userInfo.textContent = `Usuario: ${user.username}`;
+    const sidebarUser = document.getElementById('sidebar-user');
+    if (sidebarUser) sidebarUser.textContent = user.username;
   } catch (err) {
-    // Redirigir al index (raíz) si no hay sesión
-    window.location.replace('../index.html');
+    // Redirigir al login si no hay sesión
+    window.location.href = '../inicio_sesion/login.html';
     return;
   }
 
-  logoutBtn.addEventListener('click', function () {
-    localStorage.removeItem('hotel_user');
-    // Usar replace para que el usuario no pueda volver a la página protegida
-    window.location.replace('../index.html');
+  // logout: el botón puede estar en el sidebar ahora
+  const logoutButtons = document.querySelectorAll('#logout');
+  logoutButtons.forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      localStorage.removeItem('hotel_user');
+      window.location.href = '../inicio_sesion/login.html';
+    });
   });
 
   // Navegación interna: cargar vistas placeholder
@@ -37,3 +43,4 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   })();
 });
+
