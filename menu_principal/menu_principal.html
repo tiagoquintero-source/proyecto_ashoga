@@ -8,32 +8,90 @@
   </head>
   <body>
     <header class="main-header">
-      <h1 id="welcome">Menú principal</h1>
-      <div class="actions">
-        <button id="logout">Cerrar sesión</button>
-      </div>
+      <h1 id="welcome">Saildorf Pro</h1>
     </header>
 
     <div class="app-shell">
       <nav class="sidebar" aria-label="Navegación principal">
-        <ul>
+        <div class="sidebar-top">
+          <div class="user-info">
+            <div class="user-name"><span id="sidebar-user">Cargando...</span></div>
+          </div>
+        </div>
+        <ul class="sidebar-nav">
           <li><a href="menu_principal.html" class="nav-link">Inicio</a></li>
           <li><a href="../inventario/inventario.html" class="nav-link">Inventario</a></li>
           <li><a href="../traslados/traslados.html" class="nav-link">Traslados</a></li>
           <li><a href="../consumos/consumos.html" class="nav-link">Consumos</a></li>
           <li><a href="../compra_proveedores/proveedores.html" class="nav-link">Proveedores</a></li>
         </ul>
+        <div class="sidebar-bottom">
+          <button id="logout">Cerrar sesión</button>
+        </div>
       </nav>
 
       <main class="main-content">
         <section id="view-panel" class="panel" role="region" aria-live="polite">
           <!-- Las vistas se cargan aquí -->
-          <h2 id="view-title">Inicio</h2>
+          <h2 id="view-title">Dashboard General</h2>
+          <h5>Bienvenido, Gerente General. Aqui tienes un resumen de la operativa.</h5>
           <div id="view-body">
-            <p id="user-info">Cargando usuario...</p>
-            <p>Selecciona una opción del menú lateral para comenzar.</p>
           </div>
         </section>
+  <div class="quick-actions-section">
+          <div class="alerts-row">
+            <div class="alert-card">Alertas de Stock <span class="alert-count">3</span></div>
+            <div class="alert-card">Transferencias Hoy <span class="alert-count">2</span></div>
+            <div class="alert-card">Incidencias Abiertas <span class="alert-count">1</span></div>
+          </div>
+          <p class="quick-actions-title">Acciones Rápidas</p>
+          <div class="quick-actions">
+            <a class="btn-quick" id="btn-nuevo-producto" href="../inventario/inventario.html?open=new">Nuevo Producto</a>
+            <button class="btn-quick" id="btn-nuevo-traslado">Nuevo Traslado</button>
+            <button class="btn-quick" id="btn-nueva-compra">Nueva Compra</button>
+            <button class="btn-quick" id="btn-nueva-incidencia">Nueva Incidencia</button>
+          </div>
+        </div>
+        
+        <div class="two-columns">
+          <!-- Estado de hoteles -->
+          <div class="hotel-status-section">
+          <p class="section-title">Estado de Hoteles</p>
+          <div class="hotel-status-list">
+            <div class="hotel-row">
+              <div class="hotel-name">Hotel Saildorf</div>
+              <div class="hotel-badge badge-online">Online</div>
+            </div>
+            <div class="hotel-row">
+              <div class="hotel-name">Hotel Brit</div>
+              <div class="hotel-badge badge-maint">Mantenimiento</div>
+            </div>
+            <div class="hotel-row">
+              <div class="hotel-name">Hotel Costanera</div>
+              <div class="hotel-badge badge-online">Online</div>
+            </div>
+          </div>
+          </div>
+
+          <!-- Actividad reciente -->
+          <div class="recent-activity-section">
+            <p class="section-title">Actividad reciente</p>
+            <div class="activity-list">
+              <div class="activity-row">
+                <div class="activity-text">Compra: 200 unidades de Papel Higiénico (Saildorf General)</div>
+                <div class="activity-time">hace 2h</div>
+              </div>
+              <div class="activity-row">
+                <div class="activity-text">Traslado: 50 toallas de Baño de Saildorf (Local) a Costanera</div>
+                <div class="activity-time">ayer</div>
+              </div>
+              <div class="activity-row">
+                <div class="activity-text">Incidencia reportada en Hotel Brit (fuga en cuarto 204)</div>
+                <div class="activity-time">hace 3 días</div>
+              </div>
+            </div>
+          </div>
+        </div>
       </main>
     </div>
 
