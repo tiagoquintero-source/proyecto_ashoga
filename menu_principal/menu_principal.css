@@ -53,12 +53,16 @@ body{font-family:Inter,Segoe UI,Roboto,Arial;margin:0;background:#f7fbff;color:#
 
 .recent-activity-section{background:#ffffff;border:1px solid #eef3ff;border-radius:8px;padding:12px}
 .activity-list{display:flex;flex-direction:column;gap:10px}
-.activity-row{display:flex;justify-content:space-between;align-items:flex-start;padding:8px;border-radius:6px;background:#fbfdff;border:1px solid #f1f6ff}
+.activity-row{display:flex;justify-content:space-between;align-items:flex-start;padding:10px;border-radius:8px;background:#fbfdff;border:1px solid #f1f6ff}
+.activity-filters{display:flex;gap:8px;margin-bottom:10px}
+.activity-filter{background:#f1f5f9;border:1px solid #e6eefc;padding:8px 10px;border-radius:8px;cursor:pointer;font-weight:600}
+.activity-filter.active{background:#2563eb;color:white;border-color:#1e40af}
+.activity-left{display:flex;flex-direction:column;gap:6px}
+.activity-meta{font-size:12px;color:#64748b}
+.activity-right{display:flex;flex-direction:column;align-items:flex-end;gap:6px}
+.activity-badge{padding:4px 8px;border-radius:999px;font-weight:700;font-size:12px}
+.activity-badge.badge-order{background:#eef2ff;color:#1e3a8a}
+.activity-badge.badge-lowStock{background:#fff7ed;color:#92400e}
+.activity-badge.badge-newProduct{background:#ecfdf5;color:#065f46}
 .activity-text{font-size:13px;color:#0f172a}
-.activity-time{font-size:12px;color:#64748b;margin-left:8px}
-
-@media (max-width:800px){
-	.app-shell{flex-direction:column}
-	.sidebar{width:100%;display:flex;overflow:auto}
-	.nav-link{white-space:nowrap}
-}
+.activity-time{font-size:12px;color:#64748b}

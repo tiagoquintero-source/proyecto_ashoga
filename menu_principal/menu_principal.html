@@ -76,20 +76,32 @@
           <!-- Actividad reciente -->
           <div class="recent-activity-section">
             <p class="section-title">Actividad reciente</p>
-            <div class="activity-list">
-              <div class="activity-row">
-                <div class="activity-text">Compra: 200 unidades de Papel Higiénico (Saildorf General)</div>
-                <div class="activity-time">hace 2h</div>
-              </div>
-              <div class="activity-row">
-                <div class="activity-text">Traslado: 50 toallas de Baño de Saildorf (Local) a Costanera</div>
-                <div class="activity-time">ayer</div>
-              </div>
-              <div class="activity-row">
-                <div class="activity-text">Incidencia reportada en Hotel Brit (fuga en cuarto 204)</div>
-                <div class="activity-time">hace 3 días</div>
-              </div>
+
+            <!-- filtros rápidos para la lista de actividades -->
+            <div class="activity-filters" role="tablist" aria-label="Filtros de actividad">
+              <button class="activity-filter active" data-filter="all" role="tab" aria-selected="true">Todos</button>
+              <button class="activity-filter" data-filter="orders" role="tab">Pedidos</button>
+              <button class="activity-filter" data-filter="lowStock" role="tab">Stock bajo</button>
+              <button class="activity-filter" data-filter="newProduct" role="tab">Nuevos productos</button>
             </div>
+
+            <div class="activity-list" id="activity-list" aria-live="polite">
+              <!-- items dinámicos -->
+            </div>
+
+            <!-- plantilla para una entrada de actividad -->
+            <template id="activity-template">
+              <div class="activity-row" data-type="">
+                <div class="activity-left">
+                  <div class="activity-text"></div>
+                  <div class="activity-meta"></div>
+                </div>
+                <div class="activity-right">
+                  <span class="activity-badge"></span>
+                  <div class="activity-time"></div>
+                </div>
+              </div>
+            </template>
           </div>
         </div>
       </main>
