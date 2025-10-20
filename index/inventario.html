@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Inventario</title>
+    <link rel="stylesheet" href="../style/inventario.css" />
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+  
+  </head>
+  <body>
+    <header class="main-header">
+      <h1 id="welcome">Inventario</h1>
+    </header>
+
+    <div class="app-shell">
+      <nav class="sidebar" aria-label="Navegación principal">
+        <ul class="sidebar-nav">
+          <li><a href="menu_principal.html" class="nav-link"><i class='bx  bxs-dashboard'></i> Inicio</a></li>
+          <li><a href="inventario.html" class="nav-link active"><i class='bx  bxs-box'  ></i> Inventario</a></li>
+          <li><a href="traslados.html" class="nav-link"><i class='bx bx-transfer-alt'></i> Traslados</a></li>
+          <li><a href="consumos.html" class="nav-link"><i class='bx bxs-cart'></i>   Consumos</a></li>
+          <li><a href="proveedores.html" class="nav-link"><i class='bx  bxs-truck'  ></i> Proveedores</a></li>
+          <li><a href="reportes.html" class="nav-link"><i class='bx  bxs-bell'  ></i>  Reportes</a></li>
+        </ul>
+        <div class="sidebar-bottom">
+          <button id="logout">Cerrar sesión</button>
+        </div>
+      </nav>
+
+      <main class="main-content">
+        <h2 id="view-title">Inventario</h2>
+        <div id="view-body">
+            <p>Gestiona el stock de todos los hoteles y el inventario general.</p>
+        </div>
+        <section id="view-panel" class="panel" role="region" aria-live="polite">
+          <div class="panel-controls">
+            <!-- Fila superior: búsqueda (70%) + hotel (30%) -->
+            <div class="controls-row">
+              <div class="search-col">
+                <input id="search" class="input" type="search" placeholder="Buscar producto, código o descripción" />
+              </div>
+              <div class="hotel-col">
+                <select id="hotel-select" class="select">
+                  <option value="todos">Todos los Hoteles</option>
+                  <option value="saildorf_general">Saildorf (General)</option>
+                  <option value="saildorf_local">Saildorf (Local)</option>
+                  <option value="costanera">Hotel Costanera</option>
+                  <option value="brit">Hotel Brit</option>
+                </select>
+              </div>
+            </div>
+
+            <!-- Fila inferior: cargar producto, categoría, estado (en ese orden) -->
+            <div class="controls-row-bottom">
+              <div>
+                <button id="cargar-producto" class="btn-primary" type="button">+ Cargar producto</button>
+              </div>
+              <div>
+                <select id="categoria-select" class="select">
+                  <option value="">Categoría</option>
+                  <option value="aseo">Aseo</option>
+                  <option value="limpieza">Limpieza</option>
+                  <option value="habitacion">Habitación</option>
+                </select>
+              </div>
+              <div>
+                <select id="estado-select" class="select">
+                  <option value="">Estado</option>
+                  <option value="bajo">Ok</option>
+                  <option value="alto">Bajo</option>
+                  <option value="critico">Crítico</option>
+                </select>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Panel listado de productos -->
+        <section id="inventory-panel" class="panel" role="region" aria-label="Listado de productos">
+          <div class="table-wrapper">
+            <table class="inventory-table">
+              <thead class="thead-light">
+                <tr>
+                  <th>Producto</th>
+                  <th>Categoría</th>
+                  <th class="th-right">Stock</th>
+                  <th class="th-right">Stock Min.</th>
+                  <th>Estado</th>
+                  <th>Almacén</th>
+                  <th>Ult Mov.</th>
+                  <th class="th-center">Acciones</th>
+                </tr>
+              </thead>
+              <tbody id="inventory-tbody">
+                <!-- Fila de ejemplo -->
+                <tr>
+                  <td>
+                    <div class="product-name">Toallas de Baño</div>
+                    <div class="product-code">LN-T01</div>
+                  </td>
+                  <td>Aseo</td>
+                  <td class="td-right">500</td>
+                  <td class="td-right">100</td>
+                  <td><span class="status-ok">Ok</span></td>
+                  <td>Saildorf (General)</td>
+                  <td>2025-09-26</td>
+                  <td class="td-center"></td>
+                </tr>
+                <!-- Filas adicionales -->
+                <tr>
+                  <td>
+                    <div class="product-name">Jabón Líquido</div>
+                    <div class="product-code">JL-204</div>
+                  </td>
+                  <td>Aseo</td>
+                  <td class="td-right">20</td>
+                  <td class="td-right">50</td>
+                  <td><span class="status-bajo">Bajo</span></td>
+                  <td>Hotel Brit</td>
+                  <td>2025-09-20</td>
+                  <td class="td-center"></td>
+                </tr>
+                <tr>
+                  <td>
+                    <div class="product-name">Sábanas 1.5</div>
+                    <div class="product-code">SB-330</div>
+                  </td>
+                  <td>Habitación</td>
+                  <td class="td-right">150</td>
+                  <td class="td-right">50</td>
+                  <td><span class="status-ok">Ok</span></td>
+                  <td>Saildorf (Local)</td>
+                  <td>2025-09-28</td>
+                  <td class="td-center"></td>
+                </tr>
+                <tr>
+                  <td>
+                    <div class="product-name">Guantes Desechables</div>
+                    <div class="product-code">GD-110</div>
+                  </td>
+                  <td>Limpieza</td>
+                  <td class="td-right">5</td>
+                  <td class="td-right">30</td>
+                  <td><span class="status-bajo">Bajo</span></td>
+                  <td>Hotel Costanera</td>
+                  <td>2025-09-18</td>
+                  <td class="td-center"></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <!-- Modal Cargar Producto (oculto por defecto) -->
+    <div id="modal-backdrop" class="modal-backdrop hidden" aria-hidden="true">
+      <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+        <div class="modal-header">
+          <h3 id="modal-title">Cargar Nuevo Producto</h3>
+          <button id="modal-close" aria-label="Cerrar">X</button>
+        </div>
+        <div class="modal-body">
+          <form id="form-cargar">
+            <div class="form-grid">
+              <div>
+                <div class="field-label">Nombre</div>
+                <input name="nombre" class="field-input" />
+              </div>
+              <div>
+                <div class="field-label">SKU</div>
+                <input name="sku" class="field-input" />
+              </div>
+
+              <div>
+                <div class="field-label">Categoría</div>
+                <select name="categoria" class="field-input">
+                  <option value="aseo">Aseo</option>
+                  <option value="limpieza">Limpieza</option>
+                  <option value="habitacion">Habitación</option>
+                </select>
+              </div>
+              <div>
+                <div class="field-label">Proveedor Principal</div>
+                <input name="proveedor" class="field-input" />
+              </div>
+
+              <div>
+                <div class="field-label">Unidad de medida</div>
+                <select name="unidad" class="field-input">
+                  <option value="und">Unidad</option>
+                  <option value="kg">Kg</option>
+                  <option value="l">Litro</option>
+                </select>
+              </div>
+              <div>
+                <div class="field-label">Ubicación Inicial</div>
+                <select name="ubicacion" class="field-input">
+                  <option value="todos">Todos los Hoteles</option>
+                  <option value="saildorf_general">Saildorf (General)</option>
+                  <option value="saildorf_local">Saildorf (Local)</option>
+                  <option value="costanera">Hotel Costanera</option>
+                  <option value="brit">Hotel Brit</option>
+                </select>
+              </div>
+
+              <div>
+                <div class="field-label">Stock Inicial</div>
+                <input name="stock" type="number" class="field-input" />
+              </div>
+              <div>
+                <div class="field-label">Stock Mínimo</div>
+                <input name="stock_min" type="number" class="field-input" />
+              </div>
+            </div>
+
+            <div style="margin-top:12px">
+              <div class="field-label">Observaciones</div>
+              <textarea name="observaciones" class="textarea"></textarea>
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button id="modal-cancel" class="btn-secondary">Cancelar</button>
+          <button id="modal-add" class="btn-primary">Agregar</button>
+        </div>
+      </div>
+    </div>
+
+    <script src="../script/inventario.js"></script>
+    <script src="../script/menu_principal.js"></script>
+  </body>
+</html>
