@@ -45,15 +45,12 @@ document.addEventListener('DOMContentLoaded', function () {
 				status.textContent = 'Inicio de sesión correcto. Redirigiendo...';
 				status.style.color = 'green';
 
-				// Guardar sesión en localStorage
-				const user = { username: username.value.trim(), logged: true, ts: Date.now() };
-				localStorage.setItem('hotel_user', JSON.stringify(user));
+				// No guardamos sesión en localStorage: solo redirigimos al menú principal
 
 				// Pequeña pausa para que el usuario vea el mensaje y luego redirigir al index
 				setTimeout(function(){
-					// Ir al index de menu_principal y usar replace para no permitir volver atrás
-					// Ruta corregida: relativa a index.html en la raíz del proyecto
-					window.location.replace('menu_principal/menu_principal.html');
+					// Ir al menú principal
+					window.location.replace('index/menu_principal.html');
 				}, 400);
 			} else {
 				status.textContent = 'Usuario o contraseña incorrectos.';
