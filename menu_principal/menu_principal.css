@@ -16,7 +16,7 @@ body{font-family:Inter,Segoe UI,Roboto,Arial;margin:0;background:#f7fbff;color:#
 .sidebar li{margin-bottom:6px}
 .nav-link{display:block;padding:10px 12px;border-radius:8px;color:#0f172a;text-decoration:none}
 .nav-link:hover{background:#f1f8ff}
-.nav-link.active{background:#e6f0ff;font-weight:600}
+.nav-link.active{background:#e6f0ff;font-weight:600;color: white}
 
 .main-content{flex:1;padding:28px}
 .panel{background:white;border-radius:10px;padding:18px;box-shadow:0 8px 24px rgba(15,23,42,0.06)}
