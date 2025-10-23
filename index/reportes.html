@@ -29,12 +29,103 @@
       </nav>
 
       <main class="main-content">
-        <section id="view-panel" class="panel" role="region" aria-live="polite">
-          <h2 id="view-title">Reportes</h2>
-          <div id="view-body">
-            <p>Genera y descarga reportes de inventario, traslados y consumos.</p>
-          </div>
-        </section>
+        <div class="reports-wrapper" style="padding:24px;">
+          <section class="report-section">
+            <h3 class="report-title">Reporte general de stock</h3>
+            <table class="report-table">
+              <thead>
+                <tr>
+                  <th>Nombre</th>
+                  <th>Stock actual</th>
+                  <th>Stock mínimo</th>
+                  <th>Estado</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Producto A</td>
+                  <td>50</td>
+                  <td>20</td>
+                  <td class="status-green">En stock</td>
+                </tr>
+                <tr>
+                  <td>Producto B</td>
+                  <td>10</td>
+                  <td>20</td>
+                  <td class="status-yellow">Bajo stock</td>
+                </tr>
+                <tr>
+                  <td>Producto C</td>
+                  <td>0</td>
+                  <td>10</td>
+                  <td class="status-red">Sin stock</td>
+                </tr>
+              </tbody>
+            </table>
+          </section>
+
+          <section class="report-section">
+            <h3 class="report-title">Reporte de movimientos</h3>
+            <table class="report-table">
+              <thead>
+                <tr>
+                  <th>Fecha</th>
+                  <th>Producto</th>
+                  <th>Tipo</th>
+                  <th>Cantidad</th>
+                  <th>Responsable</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>2023-10-01</td>
+                  <td>Producto A</td>
+                  <td>Entrada</td>
+                  <td>100</td>
+                  <td>Usuario 1</td>
+                </tr>
+              </tbody>
+            </table>
+          </section>
+
+          <section class="report-section">
+            <h3 class="report-title">Reporte de productos más vendidos / más utilizados</h3>
+            <div class="chart-container">
+              <span>Gráfico de barras o torta aquí</span>
+            </div>
+          </section>
+
+          <section class="report-section">
+            <h3 class="report-title">Reporte de compras / ventas por período</h3>
+            <div class="filter-section">
+              <input type="date" class="filter-input" placeholder="Desde">
+              <input type="date" class="filter-input" placeholder="Hasta">
+            </div>
+            <table class="report-table">
+              <thead>
+                <tr>
+                  <th>Categoría</th>
+                  <th>Total (Unidades)</th>
+                  <th>Total (Dinero)</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Categoría A</td>
+                  <td>500</td>
+                  <td>$10,000</td>
+                </tr>
+              </tbody>
+            </table>
+          </section>
+
+          <section class="report-section">
+            <h3 class="report-title">Reporte de valuación del inventario</h3>
+            <p>Valor total del inventario: <strong>$50,000</strong></p>
+            <p>Variación respecto al mes anterior: <strong>+5%</strong></p>
+            <button class="export-button">📥 Exportar</button>
+          </section>
+        </div>
       </main>
     </div>
 
